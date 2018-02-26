@@ -59,10 +59,6 @@ cleaning$remote_work <- yesno(cleaning$remote_work)
 #tech company
 cleaning$tech_company <- yesno(cleaning$tech_company)
 
-
-#supervisors
-cleaning$supervisor <- yesno(cleaning$supervisor)
-
 #benefits - changing don't know to no and then yes no to 1 0 respectively
 cleaning$benefits[cleaning$benefits == "Don't know"] <- 'no'
 cleaning$benefits <- yesno(cleaning$benefits)
@@ -75,10 +71,37 @@ cleaning$care_options <- yesno(cleaning$care_options)
 cleaning$wellness_program[cleaning$wellness_program == "Don't know"] <- 'no'
 cleaning$wellness_program <- yesno(cleaning$wellness_program)
 
-#seek help
+#seek help - don't know to no, yes to 1 and no to 0
 cleaning$seek_help[cleaning$seek_help == "Don't know"] <- 'no'
 cleaning$seek_help <- yesno(cleaning$seek_help)
 
-#leave - it's a range!
+#leave - it's a range! also not sure what to do with the don't know factors
 
+#mental_health_consequence - range, yes: 1, maybe: 0.5, no: 0
+cleaning$mental_health_consequence[cleaning$mental_health_consequence == "Maybe"] <- 0.5
+cleaning$mental_health_consequence <- yesno(cleaning$mental_health_consequence)
 
+#phys_health_consequence - range, yes: 1, maybe: 0.5, no: 0
+cleaning$phys_health_consequence[cleaning$phys_health_consequence == "Maybe"] <- 0.5
+cleaning$phys_health_consequence <- yesno(cleaning$phys_health_consequence)
+
+#coworkers - range, yes: 1, some of them: 0.5, no: 0
+cleaning$coworkers[cleaning$coworkers == "Some of them"] <- 0.5
+cleaning$coworkers <- yesno(cleaning$coworkers)
+
+#supervisor - range, yes: 1, some of them: 0.5, no: 0
+cleaning$supervisor[cleaning$supervisor == "Some of them"] <- 0.5
+cleaning$supervisor <- yesno(cleaning$supervisor)
+
+#mental_health_interview - range, yes: 1, maybe: 0.5, no: 0
+cleaning$mental_health_interview[cleaning$mental_health_interview == "Maybe"] <- 0.5
+cleaning$mental_health_interview <- yesno(cleaning$mental_health_interview)
+
+#phys_health_interview - range, yes: 1, maybe: 0.5, no: 0
+cleaning$phys_health_interview[cleaning$phys_health_interview == "Maybe"] <- 0.5
+cleaning$phys_health_interview <- yesno(cleaning$phys_health_interview)
+
+#mental vs physical - idk what to do with the don't know values
+
+#obs_consequence - yes: 1, no: 0
+cleaning$obs_consequence <- yesno(cleaning$obs_consequence)
