@@ -6,6 +6,7 @@ library(dplyr)
 library(tidyr)
 
 #setwd("C:/Users/Rosemary/Documents/Info/370/info370-finalproject/project")
+setwd("/Users/calvinkorver/Documents/code/info370/info370-finalproject/project")
 
 raw.data <- read.csv("./data/raw_data.csv", stringsAsFactors = FALSE)
 
@@ -59,6 +60,12 @@ cleaning$remote_work <- yesno(cleaning$remote_work)
 #tech company
 cleaning$tech_company <- yesno(cleaning$tech_company)
 
+#supervisors
+cleaning$supervisor <- yesno(cleaning$supervisor)
+
+#obs_consequence
+cleaning$obs_consequence <- yesno(cleaning$obs_consequence)
+
 #benefits - changing don't know to no and then yes no to 1 0 respectively
 cleaning$benefits[cleaning$benefits == "Don't know"] <- 'no'
 cleaning$benefits <- yesno(cleaning$benefits)
@@ -71,37 +78,58 @@ cleaning$care_options <- yesno(cleaning$care_options)
 cleaning$wellness_program[cleaning$wellness_program == "Don't know"] <- 'no'
 cleaning$wellness_program <- yesno(cleaning$wellness_program)
 
-#seek help - don't know to no, yes to 1 and no to 0
+#seek help
 cleaning$seek_help[cleaning$seek_help == "Don't know"] <- 'no'
 cleaning$seek_help <- yesno(cleaning$seek_help)
 
-#leave - it's a range! also not sure what to do with the don't know factors
+#leave - it's a range!
+#Temporarily coded leave "dont know" to same as "somewhat difficult" aka 2
+cleaning$leave[cleaning$leave == 'Very easy'] <- '0'
+cleaning$leave[cleaning$leave == 'Somewhat easy'] <- '1'
+cleaning$leave[cleaning$leave == 'Somewhat difficult'] <- '2'
+cleaning$leave[cleaning$leave == "Don't know"] <- '2'
+cleaning$leave[cleaning$leave == 'Very difficult'] <- '2'
 
-#mental_health_consequence - range, yes: 1, maybe: 0.5, no: 0
-cleaning$mental_health_consequence[cleaning$mental_health_consequence == "Maybe"] <- 0.5
-cleaning$mental_health_consequence <- yesno(cleaning$mental_health_consequence)
+cleaning$anonymity[cleaning$anonymity == 'No'] <- 0
+cleaning$anonymity[cleaning$anonymity == 'Yes'] <- 1
+cleaning$anonymity[cleaning$anonymity == "Don't Know"] <- 0 #Temporary! Should be something else
 
-#phys_health_consequence - range, yes: 1, maybe: 0.5, no: 0
-cleaning$phys_health_consequence[cleaning$phys_health_consequence == "Maybe"] <- 0.5
-cleaning$phys_health_consequence <- yesno(cleaning$phys_health_consequence)
+#mental health consequences. Range from 0 to 2
+cleaning$mental_health_consequence[cleaning$mental_health_consequence=='No'] <- 0
+cleaning$mental_health_consequence[cleaning$mental_health_consequence=='Maybe'] <- 1
+cleaning$mental_health_consequence[cleaning$mental_health_consequence=='Yes'] <- 2
 
-#coworkers - range, yes: 1, some of them: 0.5, no: 0
-cleaning$coworkers[cleaning$coworkers == "Some of them"] <- 0.5
-cleaning$coworkers <- yesno(cleaning$coworkers)
 
-#supervisor - range, yes: 1, some of them: 0.5, no: 0
-cleaning$supervisor[cleaning$supervisor == "Some of them"] <- 0.5
-cleaning$supervisor <- yesno(cleaning$supervisor)
+# STILL NEEDS WORK
+cleaning$work_interfere[cleaning$work_interfere=='rarely'] <- 1
+cleaning$work_interfere[cleaning$work_interfere=='often'] <- 2
+cleaning$work_interfere[cleaning$work_interfere=='sometimes'] <- 3
 
-#mental_health_interview - range, yes: 1, maybe: 0.5, no: 0
-cleaning$mental_health_interview[cleaning$mental_health_interview == "Maybe"] <- 0.5
-cleaning$mental_health_interview <- yesno(cleaning$mental_health_interview)
 
-#phys_health_interview - range, yes: 1, maybe: 0.5, no: 0
-cleaning$phys_health_interview[cleaning$phys_health_interview == "Maybe"] <- 0.5
-cleaning$phys_health_interview <- yesno(cleaning$phys_health_interview)
+# Attempt at calculating social acceptance
+cleaning$social_acceptance <- social_acceptance_calc(cleaning$anonymity, 
+                                                     cleaning$leave,
+                                                     cleaning$mental_health_consequence,
+                                                     cleaning$supervisor,
+                                                     cleaning$obs_consequence)
 
-#mental vs physical - idk what to do with the don't know values
+#  NOT COMPLETE
+social_acceptance_calc <- function(a, l, m, s, o) {
+  sum <- 0
+  sum[a=='1'] <- 1
+  sum[l==0|| l==1] <- sum + 1
+  sum[m==0] <- sum + 1
+  sum[s==1] <- sum + 1
+  return(sum)
+}
 
-#obs_consequence - yes: 1, no: 0
-cleaning$obs_consequence <- yesno(cleaning$obs_consequence)
+# If anonymity is yes
+# If leave is somewhat easy or very easy
+# If mental_health_consequence is no
+# If supervisor is yes
+# If obs_consequence is no
+
+
+
+
+
