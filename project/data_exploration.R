@@ -112,22 +112,20 @@ cleaning$social_acceptance <- social_acceptance_calc(cleaning$anonymity,
                                                      cleaning$mental_health_consequence,
                                                      cleaning$supervisor,
                                                      cleaning$obs_consequence)
-
-#  NOT COMPLETE
+# Calculates the social acceptance of the row. Taking into account, if anonymity is
+# yes, if leave is somewhat easy or very easy, if mental health consequence is no,
+# if supervisor is yes, and obs_consequence is no, the acceptance value is
+# increased.
 social_acceptance_calc <- function(a, l, m, s, o) {
   sum <- 0
-  sum[a=='1'] <- 1
-  sum[l==0|| l==1] <- sum + 1
-  sum[m==0] <- sum + 1
-  sum[s==1] <- sum + 1
+  sum[a=='1'] <- 1   # Anonymity
+  sum[l==0 || l==1] <- sum + 1   # Leave
+  sum[m==0] <- sum + 1   # mental health consequence
+  sum[s==1] <- sum + 1   # supervisor
+  sum[o==0] <- sum + 1   # obs_consequence
+  sum[is.na(sum)] <- 0
   return(sum)
 }
-
-# If anonymity is yes
-# If leave is somewhat easy or very easy
-# If mental_health_consequence is no
-# If supervisor is yes
-# If obs_consequence is no
 
 
 
