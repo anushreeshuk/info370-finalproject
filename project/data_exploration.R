@@ -1,6 +1,7 @@
 #Data Exploration
 #setup
-#install.packages("dplyr", "tidyr")
+#install.packages("dplyr")
+#install.packages("tidyr")
 library(dplyr)
 library(tidyr)
 
@@ -62,6 +63,12 @@ cleaning$remote_work <- yesno(cleaning$remote_work)
 #tech company
 cleaning$tech_company <- yesno(cleaning$tech_company)
 
+#work interfere (leave NA values in)
+cleaning$work_interfere[cleaning$work_interfere == "Never"] = 0
+cleaning$work_interfere[cleaning$work_interfere == "Rarely"] = 1
+cleaning$work_interfere[cleaning$work_interfere == "Often"] = 2
+cleaning$work_interfere[cleaning$work_interfere == "Sometimes"] = 3
+
 #supervisors
 cleaning$supervisor <- yesno(cleaning$supervisor)
 
@@ -92,7 +99,7 @@ cleaning$leave[cleaning$leave == 'Very easy'] <- 3
 cleaning$leave[cleaning$leave == 'Somewhat easy'] <- 4
 
 #anonymity - yes = 1 don't know = 0.5 no = 0
-cleaning$anonymity[cleaning$anonymity == "don't know"] <- 0.5
+cleaning$anonymity[cleaning$anonymity == "Don't know"] <- 0.5
 cleaning$anonymity <- yesno(cleaning$anonymity)
 
 #mental health consequences - yes = 1 maybe = 0.5 no = 0
@@ -144,5 +151,25 @@ cleaning$social_acceptance[cleaning$anonymity == 1 &
                            cleaning$obs_consequence == 0] <- 1
 
 write.csv(cleaning, "./data/clean_data.csv")
+
+
+
+################################################################################################
+##################################### Dealing with work interfere ##############################
+################################################################################################
+
+#for now let's break the clean data set into two - one for people who have indicated that they
+#have a mental illness, and one for people who did not. We can compare the experiences of those 
+#two groups against each other as we identify covariates of interest
+
+illness_data <- cleaning %>%
+                filter(!is.na(cleaning$work_interfere))
+
+write.csv(illness_data, "./data/illness_data.csv")
+
+healthy_data <- cleaning %>%
+                filter(is.na(cleaning$work_interfere))
+
+write.csv(healthy_data, "./data/healthy_data.csv")
 
 
