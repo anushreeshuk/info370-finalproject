@@ -174,8 +174,5 @@ write.csv(healthy_data, "./data/healthy_data.csv")
 
 
 
-l <- glm(social_acceptance ~ self_employed, family=binomial(link='logit'),data=cleaning)
-
-
 
 
