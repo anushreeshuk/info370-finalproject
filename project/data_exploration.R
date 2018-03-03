@@ -172,7 +172,10 @@ healthy_data <- cleaning %>%
 
 write.csv(healthy_data, "./data/healthy_data.csv")
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> um
