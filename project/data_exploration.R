@@ -98,36 +98,36 @@ cleaning$leave[cleaning$leave == "Don't know"] <- 2
 cleaning$leave[cleaning$leave == 'Very easy'] <- 3
 cleaning$leave[cleaning$leave == 'Somewhat easy'] <- 4
 
-#anonymity - yes = 1 don't know = 0.5 no = 0
-cleaning$anonymity[cleaning$anonymity == "Don't know"] <- 0.5
+#anonymity - yes = 1 don't know = 2 no = 0
+cleaning$anonymity[cleaning$anonymity == "Don't know"] <- 2
 cleaning$anonymity <- yesno(cleaning$anonymity)
 
-#mental health consequences - yes = 1 maybe = 0.5 no = 0
-cleaning$mental_health_consequence[cleaning$mental_health_consequence=='Maybe'] <- 0.5
+#mental health consequences - yes = 1 maybe = 2 no = 0
+cleaning$mental_health_consequence[cleaning$mental_health_consequence=='Maybe'] <- 2
 cleaning$mental_health_consequence <- yesno(cleaning$mental_health_consequence)
 
-#phys_health_consequence - range, yes: 1, maybe: 0.5, no: 0
-cleaning$phys_health_consequence[cleaning$phys_health_consequence == "Maybe"] <- 0.5
+#phys_health_consequence - range, yes: 1, maybe: 2, no: 0
+cleaning$phys_health_consequence[cleaning$phys_health_consequence == "Maybe"] <- 2
 cleaning$phys_health_consequence <- yesno(cleaning$phys_health_consequence)
 
-#coworkers - range, yes: 1, some of them: 0.5, no: 0
-cleaning$coworkers[cleaning$coworkers == "some of them"] <- 0.5
+#coworkers - range, yes: 1, some of them: 2, no: 0
+cleaning$coworkers[cleaning$coworkers == "Some of them"] <- 2
 cleaning$coworkers <- yesno(cleaning$coworkers)
 
-#supervisor - range, yes: 1, some of them: 0.5, no: 0
-cleaning$supervisor[cleaning$supervisor == "some of them"] <- 0.5
+#supervisor - range, yes: 1, some of them: 2, no: 0
+cleaning$supervisor[cleaning$supervisor == "some of them"] <- 2
 cleaning$supervisor <- yesno(cleaning$supervisor)
 
-#mental_health_interview - range, yes: 1, maybe: 0.5, no: 0
-cleaning$mental_health_interview[cleaning$mental_health_interview == "Maybe"] <- 0.5
+#mental_health_interview - range, yes: 1, maybe: 2, no: 0
+cleaning$mental_health_interview[cleaning$mental_health_interview == "Maybe"] <- 2
 cleaning$mental_health_interview <- yesno(cleaning$mental_health_interview)
 
-#phys_health_interview - range, yes: 1, maybe: 0.5, no: 0
-cleaning$phys_health_interview[cleaning$phys_health_interview == "Maybe"] <- 0.5
+#phys_health_interview - range, yes: 1, maybe: 2, no: 0
+cleaning$phys_health_interview[cleaning$phys_health_interview == "Maybe"] <- 2
 cleaning$phys_health_interview <- yesno(cleaning$phys_health_interview)
 
-#mental vs physical - range, yes = 1 don't know - 0.5 no = 0
-cleaning$mental_vs_physical[cleaning$mental_vs_physical == "Don't know"] <- 0.5
+#mental vs physical - range, yes = 1 don't know - 2 no = 0
+cleaning$mental_vs_physical[cleaning$mental_vs_physical == "Don't know"] <- 2
 cleaning$mental_vs_physical <- yesno(cleaning$mental_vs_physical)
 
 ################################################################################################
@@ -171,11 +171,3 @@ healthy_data <- cleaning %>%
                 filter(is.na(cleaning$work_interfere))
 
 write.csv(healthy_data, "./data/healthy_data.csv")
-
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> um

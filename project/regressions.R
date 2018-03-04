@@ -1,21 +1,27 @@
-#Log regression
-data <-read.csv("./data/clean_data.csv", stringsAsFactors = FALSE)
+######################################################################
+###################### Log Regressions ###############################
+######################################################################
 
-clean_regression_data <- data %>% select(-state, -Country, -X)
+#read in data, get rid of state and country data
+data <-read.csv("./data/clean_data.csv", stringsAsFactors = FALSE) %>% select(-state, -Country, -X, -work_interfere)
+
+healthy_data <- read.csv("./data/healthy_data.csv", stringsAsFactors = FALSE) %>% select(-state, -Country, -X)
+illness_data <- read.csv("./data/illness_data.csv", stringsAsFactors = FALSE) %>% select(-state, -Country, -X)
 
 
 ##running the log regression on all covariates
-
 log_regression <- function(covariate){
-  l <- glm(social_acceptance ~ covariate, family=binomial(link='logit'),data=clean_regression_data)
+  glm(social_acceptance ~ data[[covariate]], family=binomial(link='logit'),data=data)
   return (l)
 }
 
-for(covariate in colnames(clean_regression_data)){
-  print(covariate)
-  if(covariate != "work_interfere" | covariate != "social_acceptance"){
-    log_regression(covariate)
-  }
+for(covariate in colnames(data)){
+  log_regression(covariate)
 }
 
-l <- glm(social_acceptance ~ Gender, family=binomial(link='logit'),data=clean_regression_data)
+l <- glm(social_acceptance ~ mental_health_consequence, family=binomial(link='logit'),data=data)
+
+data <-read.csv("./data/clean_data.csv", stringsAsFactors = FALSE) %>% select(-state, -Country, -X, -work_interfere, -mental_health_consequence, -phys_health_consequence)
+data <- data %>% select(Gender, self_employed, family_history, social_acceptance, treatment, no_employees, remote_work, tech_company, 
+                                benefits, care_options, wellness_program, seek_help, anonymity, leave, coworkers, supervisor)
+l <- glm(social_acceptance ~ ., family=binomial(link='logit'),data=data)
