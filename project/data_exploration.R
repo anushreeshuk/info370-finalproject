@@ -7,6 +7,7 @@ library(tidyr)
 
 #setwd("C:/Users/Rosemary/Documents/Info/370/info370-finalproject/project")
 #setwd("/Users/calvinkorver/Documents/code/info370/info370-finalproject/project")
+#setwd("~/Documents/Winter2018/INFO370/Assignments/info370-finalproject/project")
 
 raw.data <- read.csv("./data/raw_data.csv", stringsAsFactors = FALSE)
 
@@ -18,7 +19,7 @@ raw.data <- read.csv("./data/raw_data.csv", stringsAsFactors = FALSE)
 #takes in a column and codes each 'yes' to a 1 and 'no' to a 0
 yesno <- function(x) {
   x <- sapply(x, tolower)
-  x[x=='no'] <- 0
+  x[x=='no'] <- 0 
   x[x=='yes'] <- 1
   return (x);
 }
@@ -150,7 +151,17 @@ cleaning$social_acceptance[cleaning$anonymity == 1 &
                            cleaning$supervisor == 1 &
                            cleaning$obs_consequence == 0] <- 1
 
+
+cleaning$ease_communication <- 0
+
+cleaning$ease_communication[cleaning$coworkers > 1 &
+                              cleaning$supervisor > 1 &
+                              (cleaning$mental_health_interview == 1 | cleaning$phys_health_interview == 2) &
+                              (cleaning$mental_health_consequence == 1 | cleaning$phys_health_consequence == 2)] <- 1
+
+
 write.csv(cleaning, "./data/clean_data.csv")
+
 
 
 
