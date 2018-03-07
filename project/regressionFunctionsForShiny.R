@@ -19,14 +19,12 @@ getPVals <- function(data, covariates, metric) {
       equation <- paste(equation, covariate, sep=" + ")
     }
   }
-  # Finally, we create a model, and return the plot of the p value.
+  # Finally, we create a model, and return the dataframe of the p values and covariates.
   model <- glm(as.formula(equation), family=binomial(link='logit'), data=data, maxit=100)
   pValVector <- as.vector((coef(summary(model))[,4]))
   
   # print(coef(summary(model))[,4]) # Debug print for checking
-  df = data.frame(covariates = covariates, pVals = pValVector[2:length(pValVector)])
-  print(df)
-  return(df)
+  return(data.frame(covariates = covariates, pVals = pValVector[2:length(pValVector)]))
 }
 
 
@@ -36,8 +34,9 @@ getPVals <- function(data, covariates, metric) {
 createHistogram <- function(pValDF) {
   # Actually create the plot
   p <- plot_ly(data=pValDF,
-               x = ~covariates, #The covariates
-               y = ~pVals)%>%
+               x = ~covariates,
+               y = ~pVals, 
+               type='bar')%>%
     layout(title = "p Values for covariates",
            xaxis = list(title = 'Co Variate',
                         zeroline = TRUE),
