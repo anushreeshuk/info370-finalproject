@@ -8,10 +8,14 @@
 #
 
 library(shiny)
+library(plotly)
 library(shinythemes)
 
+data <- read.csv("./data/clean_data.csv")
 
-# Define UI for application that draws a histogram
+data <- data %>% select(-X, -Country, -state)
+covariates <- colnames(data)
+
 shinyUI(navbarPage("Mental Health in the Workplace",
             tabPanel(
               "Overview",
@@ -40,9 +44,26 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        They do a survey annually, and we are using the 2014 survey for this project."),
                 tags$p("We also found the data from this survey on", 
                        tags$a(href="https://www.kaggle.com/osmi/mental-health-in-tech-survey", "Kaggle.com,"), " which is where we actually sourced our data from because Kaggle had neatly renamed and documented the cumbersome original columns."),
+                tags$p("The data itself contained demographic information about the participant, and the answers to their questions from the survey.
+                       You can see the questions, and their respective encodings, at the bottom of the page here. One of the questions that stood out to us
+                       was 'If you have a mental illness, to what extent would you say it has interfered with your work?' We found this interesting because
+                       no where in the survey does it ask directly if a participant has a mental illness, but this question is prety revealing. So we decided that
+                       we would analyse the data in three different sets - the full dataset, which included the answers and non answers to that question, and then
+                       with two subsets of data: those who indicated having a mental illness, and those who did not. While we cannot firmly say that those who did not answer
+                       definitely do not have a mental illness, it has allowed us to see the differing levels of significance in different covariates 
+                       depending on the data we use."),
                 tags$br(),
                 tags$h2("Measuring Social Acceptance"),
-                tags$p("")
+                tags$p("We also had to compute our own measures of social acceptance. We actually decided to compute three outcomes of interest to properly address
+                       how mental health is percieved and dealt with in the workplace, with social acceptance being one of them. We also computed
+                       an ease of communication score, indating how easy it is for someone to communicate with their coworkers and boss about mental health, and
+                       an ease of access score, which we calculated based on how transparent a company was about mental health resources offered. All
+                       of these measures were calculated based on a variety of variables in the data, and placed on a binary scale, with a 1 indicating that
+                       the participant had social acceptance/ease of access/ease of communication at their office, and 0 being that they did not."),
+                tags$p("We then used logarithmic regression to evaluate the significance of each covariate in predicting each binary outcome that we had calculated.
+                       On the Exploration tab you can interact with all of the aspects of our data described here to see what the p-values generated from our model
+                       indicate about the influence of chosen covariates on the outcome of your choice. On our Analysis tab you can see what we found to be interesting
+                       from the dataset, as well as suggestions on how to make mental health more accepted in your own workplace.")
               )
             ),
             tabPanel("Explore",
@@ -53,19 +74,17 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                                      selected = 1 )
                   ,
                   radioButtons("selectOutcome", label = h3("Select your outcome of interest"), 
-                                   choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                                   choices = list("Social Acceptance" = 1, "Ease of Communication" = 2, "Ease of Access" = 3),
                                    selected = 1)
                   ,
                   checkboxGroupInput("selectCovariates", label = h3("Select your covariates of interest"), 
-                                    choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                                    c(covariates),
                                     selected = 1)
                   ),
                        
                   mainPanel(
-                    fluidRow(column(6, verbatimTextOutput("data"))),
-                    fluidRow(column(6, verbatimTextOutput("outcome"))),
-                    fluidRow(column(6, verbatimTextOutput("covariate")))
                     
+                    plotlyOutput("plot")
                   )
             )),
             tabPanel("Conclusions",
