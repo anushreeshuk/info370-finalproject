@@ -1,0 +1,12 @@
+name: mental-health
+title: mental-health
+username:
+account: rosemerryberry
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 295326
+bundleId: 1257811
+url: https://rosemerryberry.shinyapps.io/mental-health/
+when: 1520460249.9546
+asMultiple: FALSE
+asStatic: FALSE

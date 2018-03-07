@@ -7,13 +7,20 @@
 #    http://shiny.rstudio.com/
 #
 
+
+#install.packages("plotly")
+#install.packages("shinythemes")
+
 library(shiny)
 library(plotly)
 library(shinythemes)
 
+healthy <- read.csv("./data/healthy_data.csv")
+illness <- read.csv("./data/illness_data.csv")
 data <- read.csv("./data/clean_data.csv")
 
-data <- data %>% select(-X, -Country, -state)
+data <- data %>% select(-X, -Country, -state, -social_acceptance, -ease_communication, -care_accessibility, -work_interfere)
+
 covariates <- colnames(data)
 
 shinyUI(navbarPage("Mental Health in the Workplace",
@@ -79,17 +86,44 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                   ,
                   checkboxGroupInput("selectCovariates", label = h3("Select your covariates of interest"), 
                                     c(covariates),
-                                    selected = 1)
+                                    selected = "self_employed")
                   ),
                        
                   mainPanel(
-                    
-                    plotlyOutput("plot")
+                    plotlyOutput("plot"),
+                    plotOutput("fit")
                   )
             )),
-            tabPanel("Conclusions",
+            tabPanel("Analysis",
               mainPanel(
-                "This is where we draw our conclusions"
+                tags$h1("Our Analysis"),
+                tags$h2("Data Cleaning"),
+                tags$p("data cleaning explanation"),
+                tags$h2("Calculating Outcomes of Interest"),
+                tags$p("simple visual & explanation of what covariates are in each outcome"),
+                tags$h2("The Model"),
+                tags$p("An explanation of why we chose to do a log regression, what threshold of p values we are using and how we're using them to answer our question"),
+                tags$h2("Goodness of Fit"),
+                tags$p("an explanation of how we tested the goodness of fit of our models and why we chose ROC"),
+                tags$h2("Answering the Question"),
+                tags$p("An explanation how how we went about chosing covariates based on our exploratory tool and contextual information"),
+                tags$h3("The Model: Ease of Communication"),
+                tags$p("here's gonna the be the ease of communcation stuff"),
+                tags$h3("The Model: Ease of Access"),
+                tags$p("more stuff"),
+                tags$h3("The Model: Social Acceptance"),
+                tags$p("some more stuff")
               )
-            ), theme = shinytheme("journal")
+            ),
+            tabPanel("Recommendations",
+              mainPanel(
+                tags$h1("Our Recommendations"),
+                tags$p("Based on the covariates we identified in our analysis, we have come up with three concrete measures you can take in your office
+                       to increase ease of communication, access to resources, and social acceptance of mental health."),
+                tags$h2("Reccommendation One: BLAH"),
+                tags$h2("Reccommendation Two: BLAH"),
+                tags$h2("Reccommendation Three: BLAH")
+              )
+            ),
+            theme = shinytheme("journal")
        ))
