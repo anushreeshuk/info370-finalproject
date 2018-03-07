@@ -6,11 +6,15 @@ library(plotly)
 # @metric string that we want to measure eg "social_acceptance"
 # Returns dataframe with the covariates and their respective p values
 getPVals <- function(data, covariates, metric) {
+  if(is.null(covariates)) { stop("Covariates can not be null, duhh") }
+  
+  if (is.null(data) || is.null(metric)) { stop("Data is null or metric is null") }
+  
   # Sanity check, make sure that we have at least one covariate
-  if (length(covariates) < 1) {
-    print("Length of covariates must be larger than 0")
-    return;
-  }
+  if (length(covariates) < 1) { stop("Length of covariates must be larger than 0") }
+  
+  if(metric == "") { stop("Metric needs to be a valid length string") }
+  
   # Cool, lets slap on the first covariate.
   equation <- paste(metric, covariates[1], sep=" ~ ")
   print(equation)
@@ -45,6 +49,11 @@ createHistogram <- function(pValDF) {
   return(p)
 }
 
-# TEST IT OUT
-#plotPValues(data, covariates, metric)
+# don't delete this till we ship
+
+# setwd("/Users/calvinkorver/Documents/code/info370/info370-finalproject/project")
+# data <- read.csv("./data/raw_data.csv", stringsAsFactors = FALSE)
+# covariates <- c('test')
+# metric <- NULL
+# getPVals(data, covariates, metric)
 
