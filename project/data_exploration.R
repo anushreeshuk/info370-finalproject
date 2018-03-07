@@ -160,6 +160,14 @@ cleaning$ease_communication[cleaning$coworkers > 1 &
                               (cleaning$mental_health_consequence == 1 | cleaning$phys_health_consequence == 2)] <- 1
 
 
+cleaning$care_accessibility <- 0
+
+cleaning$care_accessibility[cleaning$benefits == 1 &
+                              cleaning$care_options == 1 &
+                              cleaning$wellness_program == 1 &
+                              cleaning$seek_help == 1] <-1
+
+
 write.csv(cleaning, "./data/clean_data.csv")
 
 
@@ -182,3 +190,4 @@ healthy_data <- cleaning %>%
                 filter(is.na(cleaning$work_interfere))
 
 write.csv(healthy_data, "./data/healthy_data.csv")
+

@@ -33,12 +33,6 @@ summary(glm(social_acceptance ~., family=binomial(link='logit'), data=data), max
 summary(glm(social_acceptance ~ Gender+self_employed, family=binomial(link='logit'), data=data, maxit=100))
 
 
-
-
-
-
-
-
 glm_social <- glm(social_acceptance ~ mental_health_consequence, family=binomial(link='logit'),data=data)
 data['predict'] = glm_social.predict()
 glm_social.summary()
