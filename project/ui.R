@@ -136,7 +136,11 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        critical for us to select a p value threshold because we were looking at the effects of both singular covariates as well as combinations. Our final model choices were based on a combination
                        of contextual choices (what covariates intuitively work well together), the goodness of fit of the ROC curve, and then the resulting p values from the model."),
                 tags$h2("Goodness of Fit"),
-                tags$p("an explanation of how we tested the goodness of fit of our models and why we chose ROC"),
+                tags$p("Before we can get into the understanding the goodness of fit and ROC Curves, it's important to understand what specificity and sensitivity mean. When doing a predictive analysis, it is almost certain to come across a rate of error. 
+                        Manipulating and grasping these values is how data scientists make a living. Sensitivity or the True Positive Rate is the ability for a test to correctly identify true positive values. Whereas specificity measures how often our test incorrestly tests positive or in simple terms how often does it give us a fake scare. 
+                        Receiver Operating Characteristic or better know as ROC Curves is a popular technique to visualize the performance of a binary classifier. Since the data we are using has been cleaned to mostly show 0 and 1 values, we decided to follow the ROC approach.
+                        For our logistic model, we are plotting the best fit line based on the data, the outcome of interest and the various coovariates that the user selects. 
+                        covariates and outcome of interest picks up true positives and minimum false positives. Curves that get closer to the diagonal axis indicate poor model accurancy. Feel free to play around with the tool on the Explore page to get a deeper grasp on these concepts."),
                 tags$h2("Answering the Question"),
                 tags$p("The following are the covariates we determined to have the biggest effect on our outcomes of interest for this analysis."),
                 tags$h3("The Model: Ease of Communication"),

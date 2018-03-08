@@ -49,7 +49,7 @@ draw_best_fit <- function(glm_model_val, covariates, data, metric) {
   }
   
   # draw plot
-  best_fit_plot <- plot(spec, sens, xlim = c(0, 1), ylim = c(0, 1), type = "l", xlab = "False Positive Rate", ylab = "True Positive Rate", col = 'blue')
+  best_fit_plot <- plot(spec, sens, xlim = c(0, 1), ylim = c(0, 1), type = "l", xlab = "False Positive Rate (100-Specificity)", ylab = "True Positive Rate(100-Sensitivity)", col = 'blue')
   abline(0, 1, col = "black")
   legend("topleft", legend = c("logit") , pch = 15, bty = 'n', col = c("blue"))
   best_fit_plot
