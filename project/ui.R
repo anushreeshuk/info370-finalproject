@@ -187,6 +187,8 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        has family history of mental health ilness, they know of resoures and feel more comfortable discussing the fact. Additionally, if an employer provides 
                        mental health resources and it is easy to take medical leave because of a mental health condition, the subject may become more common and less 
                        personal in the workplace, allowing the subject to talk freely about mental health."),
+                plotlyOutput("communication"),
+                  
                 tags$h3("The Model: Ease of Access"),
                 tags$p("Treatment, no_employee, and anonymity have the biggest effect on our outcome of interest, ease of access to mental health care.
                        The p-values for these covariates range from essentially 0 to 0.027, which show a strong correlation. The questions asked were \"Have you 
@@ -197,8 +199,20 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        mental health care, but perhaps in a large company, the subject knows more people who have used mental health services and then better understands the 
                        opportunities to gain access to mental health care. On the other hand, if the subject works at a small company, they may be closer with the other 
                        employees and have a more diverse dialogue that includes the subject of mental health."),
+                plotlyOutput("access"),
+                
                 tags$h3("The Model: Social Acceptance"),
-                tags$p("some more stuff"),
+                tags$p("Coworkers, leave, supervisor, and obs_consequence have the biggest effect on our outcome of interest, social acceptance of mental health care.
+                       The p-values for these covariates range from essentially 0 to 0.98 (observed consequence). This is an extremely high p-value, but it is important to notice 
+                       that when the observed consequence is selected as a covariate, the other covariate's p-values decrease significantly - the next highest is coworkers at 0.48.
+                       It is likely so high because we used it in our calculation of social acceptance. The questions asked were \"Would you be willing to discuss a mental health issue with your coworkers?\",
+                      \"How easy is it for you to take medical leave for a mental health condition?\", \"Would you be willing to discuss a mental health issue with your direct supervisor(s)?\" and
+                      \"Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?\". The covariates of coworker and supervisor
+                       are very relevent to this outcome because they represent the social aspect of the office. Leave plays a role because the coworkers are willing to fill in 
+                       for the work you are missing because they understand and accept the needs of mental health conditions. Observed consequence is relevent because it also has to do 
+                       with the social aspect of the work environment."),
+                plotlyOutput("acceptance"),
+            
                 tags$br(),
                 tags$br(),
                 tags$br(),

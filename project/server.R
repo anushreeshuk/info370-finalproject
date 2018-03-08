@@ -88,4 +88,42 @@ shinyServer(function(input, output) {
     getCovariateDefinitions() %>% select(-encodings)
   )
   
+  output$communication <- renderPlotly({
+    
+    dataFrame <- data
+    covariates <- c('family_history', 'leave', 'seek_help')
+    outcome <- 'obs_consequence'
+    
+    pVals <- getPVals(dataFrame, covariates, outcome)
+
+    createHistogram(pVals)
+    
+  })
+  
+  output$access <- renderPlotly({
+    
+    dataFrame <- data
+    covariates <- c('treatment', 'no_employees', 'anonymity')
+    outcome <- 'care_accessibility'
+    
+    pVals <- getPVals(dataFrame, covariates, outcome)
+    
+    createHistogram(pVals)
+    
+  })
+  
+  output$acceptance <- renderPlotly({
+    
+    dataFrame <- data
+    covariates <- c('leave', "obs_consequence", "coworkers", "supervisor")
+    outcome <- 'social_acceptance'
+    
+    pVals <- getPVals(dataFrame, covariates, outcome)
+    
+    createHistogram(pVals)
+    
+  })
+  
+  
+  
 })
