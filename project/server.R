@@ -7,17 +7,23 @@
 #    http://shiny.rstudio.com/
 #
 
+#necessary packages and libraries
 library(shiny)
 library(plotly)
 source("regressionFunctionsForShiny.R")
 source("bestfit.R")
 
+#data being used in the project
+healthy <- read.csv("./data/healthy_data.csv")
+illness <- read.csv("./data/illness_data.csv")
+data <- read.csv("./data/clean_data.csv")
 
-#rando edit
 
-# Define server logic required to draw a histogram
+# Define server logic required to draw a bar plot of p values and an ROC chart
+# inludes basic error handling where an empty plot is returned if there is no input
+
 shinyServer(function(input, output) {
-  
+    
   output$plot <- renderPlotly({ 
     
     if(input$selectData == 1){
@@ -37,8 +43,11 @@ shinyServer(function(input, output) {
     }
     
     pVals <- getPVals(dataFrame, input$selectCovariates, outcome)
-    
-    createHistogram(pVals)
+    if( pVals == 1){
+      plotly_empty()
+    } else {
+      createHistogram(pVals)
+    }
     
   })
   
@@ -61,7 +70,11 @@ shinyServer(function(input, output) {
     
     model <- create_glm_model(input$selectCovariates, dataFrame, outcome)
     
-    draw_best_fit(model, input$selectCovariates, dataFrame, outcome)
+    if( model == "error"){
+      plotly_empty()
+    } else {
+      draw_best_fit(model, input$selectCovariates, dataFrame, outcome)
+    }
     
   })
   

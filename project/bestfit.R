@@ -1,13 +1,21 @@
 
 library(ggplot2)
                                                                           
-#function that takes in a dataset, covariates and metric to evaluate and spits out the glm_model
+#function that takes in a dataframe, vector of covariates and an outcome of interest to evaluate and spits out the glm_model
 create_glm_model <- function(covariates, data, metric) {
-  print(covariates)
+
+  if(is.null(covariates)) { return("error") }
+  
+  if (is.null(data) || is.null(metric)) { return("error") }
+  
+  # Sanity check, make sure that we have at least one covariate
+  if (length(covariates) < 1) { return("error") }
+  
+  if(metric == "") { return("error") }
+  
   #starts off with the first covariate the user picks
   equation <- paste(metric, covariates[1], sep = " ~ ")
-  print(equation)
-  print("AHH")
+
   #if the user selects more than one covariate, then we paste them on with "+" 
   if (length(covariates) > 1) {
     for (covariate in covariates[2:length(covariates)]) {
@@ -17,7 +25,7 @@ create_glm_model <- function(covariates, data, metric) {
   
   #create a glm_model by passing in the equation with covariates, data, metric
   glm_model <- glm(as.formula(equation), family=binomial(link='logit'), data=data, maxit=100)
-  print(glm_model)
+
   return(glm_model)
 }
 
