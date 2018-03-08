@@ -6,18 +6,18 @@ library(plotly)
 # @metric string that we want to measure eg "social_acceptance"
 # Returns dataframe with the covariates and their respective p values
 getPVals <- function(data, covariates, metric) {
-  if(is.null(covariates)) { stop("Covariates can not be null, duhh") }
+  if(is.null(covariates)) { return(1) }
   
-  if (is.null(data) || is.null(metric)) { stop("Data is null or metric is null") }
+  if (is.null(data) || is.null(metric)) { return(1) }
   
   # Sanity check, make sure that we have at least one covariate
-  if (length(covariates) < 1) { stop("Length of covariates must be larger than 0") }
+  if (length(covariates) < 1) { return(1) }
   
-  if(metric == "") { stop("Metric needs to be a valid length string") }
+  if(metric == "") { return(1) }
   
   # Cool, lets slap on the first covariate.
   equation <- paste(metric, covariates[1], sep=" ~ ")
-  print(equation)
+
   # If we have more covariates, we want to paste them on with a "+" separator
   if (length(covariates) > 1) {
     for(covariate in covariates[2:length(covariates)]) {
