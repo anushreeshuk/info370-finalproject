@@ -145,9 +145,10 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                 tags$p("The following are the covariates we determined to have the biggest effect on our outcomes of interest for this analysis."),
                 tags$h3("The Model: Ease of Communication"),
                 tags$p("Self_employed, family_history, seek_help, leave, phys_health_consequence have the biggest effect on our outcome of interest, ease of communication. 
-                       The p-values for these covariates are between 0 and 0.0087"),
+                       The p-values for these covariates range from essentially 0 to 0.0087, which show a very strong correlation."),
                 tags$h3("The Model: Ease of Access"),
-                tags$p("more stuff"),
+                tags$p("Treatment, no_employee, and anonymity have the biggest effect on our outcome of interest, ease of access to mental health care.
+                       The p-values for these covariates range from essentially 0 to 0.027, which show a strong correlation."),
                 tags$h3("The Model: Social Acceptance"),
                 tags$p("some more stuff"),
                 tags$br(),
