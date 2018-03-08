@@ -212,7 +212,7 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        for the work you are missing because they understand and accept the needs of mental health conditions. Observed consequence is relevent because it also has to do 
                        with the social aspect of the work environment."),
                 plotlyOutput("acceptance"),
-            
+
                 tags$br(),
                 tags$br(),
                 tags$br(),
@@ -228,17 +228,25 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        to increase ease of communication, access to resources, and social acceptance of mental health."),
                 tags$h2("Reccommendation One: Easing Mental Illness Communication"),
                 tags$p("In our 'Ease of Communication' analysis, we found that three covariates (family_history, leave, and seek_help) had the greatest effect on our
-                        outcome of interest. `seek_help` is the most obvious outcome, where subjects responded to 'Does your employer provide resources to learn more about mental
-                        health issues and how to seek help?'. More interesting was the found correlation between `family history`, 'Do you have a family history of mental illness',
-                        because it shows that a family history of mentall illness has a positive correlation for ease of communication with employers about mental illness.
-                        Therefore, we suggest that while creating resources that address mental illnesses and providing leave time are necessary and appropriate reponses, 
-                        material that specifically addresses or introduces information regarding mental illness history and awareness would be extremeley affect to ease the 
-                        communication of said illnesses. This solution would act as a combination of covariates, where it not only informs employees but also provides 
+                        outcome of interest. `seek_help` is the most obvious outcome, where subjects answered, 'Does your employer provide resources to learn more about mental
+                        health issues and how to seek help?'. Perhaps more interesting was the the correlation between ease of communication and the covariate `family history`, which                           asks, 'Do you have a family 
+                        history of mental illness?' In other words, if an employee has a family history of mental illness, they are likelier to find that communicating mental illness
+                        is substantially easier.
+                        
+                        While it is obviously not possible to suggest that employee's should have a family history of mental illness just to improve their ease of communication, we
+                        can potentially devise other ways to link these covariates.
+
+                        While providing resources that address mental illnesses and as well as employee health leave are appropriate reponses, we suggest a hybrid of help resources and
+                        family mental illness history changes. Specifically, the employer could introduce material that introduces information about family mental illness history and                           awareness could prove effective in easing the communication of said illnesses. Digital media, documentation, and other sources suggesting employees look into                            family health history combined with strategica resources for those seeking mental illness help would be an example of this workplace improvement.
+
+                        Ultimately, this solution can be thought of as a combination of covariates that not only informs employees but also provides 
                         awareness of family mental health history and acceptance."),
                 tags$h2("Reccommendation Two: Anonymizing and Seaparting Access to Resources"),
-                tags$p("When analyzing our covariates for 'Ease of Access', we found that `treatment`, `no_employee` and `anonymity` have the biggest effect. We found that anonymity had a surprisingly large effect on the outcome of interest and surmise that because employees have anonymity, they find it easier to access mental health care resources. Additionally, the increase in company size also correlates to ease of access - presumable because with more employees, the chance of others knowing about the employees mental health illness decreases. Why we could suggest that there are measure to anonymize employee requests for mental health illness resources, it still would not solve the problem for companies with a smaller number of employees (eg. less than 20). Therefore, our recommendation is for companies to not only anonymize the process of seeking access to mental health care or substance abuse treatment, but also to delegate the response to a third party, like HR. Many very small companies often utilize a third party HR resource, which could offer employees an anonymous experience but also simulate a large company because there is less discolsure between HR and other members of the company."),
+                tags$p("When analyzing our covariates for 'Ease of Access', we found that `treatment`, `no_employee` and `anonymity` have the biggest effect. Aanonymity had a surprisingly large effect on the outcome of interest and we surmise that because employees have anonymity, they might find it more comfortable or even safer to access mental health care resources. Additionally, an increase in company size also correlates to ease of access - presumably because with more employees, the chance of others knowing about the employees mental health illness decreases. We are lead to believe that there is a stigma in the workplace against illness - specifically mental illness. While we could suggest the implementation of measures to anonymize employee requests for mental health illness resources, it still would not solve the problem for companies with a small number of employees (eg. less than 20). Therefore, our recommendation is for companies to not only anonymize the process of seeking access to mental health care and substance abuse treatment, but also to delegate the response to a third-party, like human resources. Many very small companies often utilize a third-party HR resource, which could offer employees an anonymous experience but also simulate a large company because there is less personal helath discolsure between HR and other members of the company."),
                 tags$h2("Reccommendation Three: BLAH"),
-                tags$p("write your stuff here"),
+                tags$p("Finally, our last recommendation for improving workplace mental health is concerned with the outcome of interest, 'social acceptance'. We found that three covariates, `anonymity`, `leave`, and `mental_health_consequence` has the greatest effects. While the first two recommendations above would potentially provide improvements in this outcome of interest as well, we are more concerned with the social impacts of having a mental illness in the workplace.
+                       
+                       Therefore, we recommend that employers make available resources, policies, and benefits that assist employees in taking time off for their mental health illness. Coupled with a policy of anonymization and the third-party approval system outlined in recommendation two, this would have significant positive impacts on social acceptance of mental health illness in the workplace. We believe that with the availability and exposure that these new benefits and policies provide for mental illness, employees will begin to be more socially accepting of the fact that not only peers in their workplace, but in society at large, struggle with mental illness and should not be afraid to seek effective treatment."),
                 tags$br(),
                 tags$br(),
                 tags$br(),
