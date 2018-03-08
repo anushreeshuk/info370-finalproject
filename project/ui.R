@@ -144,11 +144,16 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                 tags$h2("Answering the Question"),
                 tags$p("The following are the covariates we determined to have the biggest effect on our outcomes of interest for this analysis."),
                 tags$h3("The Model: Ease of Communication"),
-                tags$p("Self_employed, family_history, seek_help, leave, phys_health_consequence have the biggest effect on our outcome of interest, ease of communication. 
-                       The p-values for these covariates range from essentially 0 to 0.0087, which show a very strong correlation."),
+                tags$p("Family_history, seek_help, and leave have the biggest effect on our outcome of interest, ease of communication. The p-values for these covariates 
+                       range from essentially 0 to 389mu, which is also essentially 0. This shows a very strong correlation. After finding these covariates of interest,
+                       we are able to speculate about why they have an effect on ease of communication. The questions asked were \"Do you have a family history of mental illness?\",
+                       \"How easy is it for you to take medical leave for a mental health condition?\", and \"Does your employer provide resources to learn more about 
+                       mental health issues and how to seek help?\". "),
                 tags$h3("The Model: Ease of Access"),
                 tags$p("Treatment, no_employee, and anonymity have the biggest effect on our outcome of interest, ease of access to mental health care.
-                       The p-values for these covariates range from essentially 0 to 0.027, which show a strong correlation."),
+                       The p-values for these covariates range from essentially 0 to 0.027, which show a strong correlation. The questions asked were \"Have you sought 
+                       treatment for a mental health condition?\", \"How many employees does your company or organization have?\", and \"Is your anonymity protected if 
+                       you choose to take advantage of mental health or substance abuse treatment resources?\". "),
                 tags$h3("The Model: Social Acceptance"),
                 tags$p("some more stuff"),
                 tags$br(),
