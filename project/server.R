@@ -10,8 +10,10 @@
 #necessary packages and libraries
 library(shiny)
 library(plotly)
+library(dplyr)
 source("regressionFunctionsForShiny.R")
 source("bestfit.R")
+source("CovariateExplanations.R")
 
 #data being used in the project
 healthy <- read.csv("./data/healthy_data.csv")
@@ -79,7 +81,11 @@ shinyServer(function(input, output) {
   })
   
   output$encodings <- renderDataTable(
-    iris
+    getCovariateDefinitions() %>% select(-definitions)
+  )
+  
+  output$definitions <- renderTable(
+    getCovariateDefinitions() %>% select(-encodings)
   )
   
 })

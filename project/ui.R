@@ -102,7 +102,8 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                     plotlyOutput("plot"),
                     plotOutput("fit"),
                     tags$h2("Covariate Encodings"),
-                    tags$p("This chart simply shows what questions each covariate represents.")
+                    tags$p("This chart simply shows what questions each covariate represents."),
+                    tableOutput("definitions")
                   )
             )),
             tabPanel("Analysis",

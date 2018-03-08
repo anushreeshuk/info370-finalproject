@@ -1,7 +1,14 @@
 # Function that returns a dataframe with columns covariate and 
 # definition with the respective information
 getCovariateDefinitions <- function() {
-  covariate <- c(
+  covariates <- c(
+    "Gender",
+    "self_employed",
+    "family_history",
+    "treatment",
+    "no_employees",
+    "remote_work",
+    "tech_company",
     "benefits",
     "care_options",
     "wellness_program",       
@@ -9,13 +16,21 @@ getCovariateDefinitions <- function() {
     "anonymity",
     "leave",                    
     "mental_health_consequence",
-    "phys_health_consequence","coworkers",             
+    "phys_health_consequence",
+    "coworkers",             
     "supervisor",
     "mental_health_interview",
     "phys_health_interview",   
     "mental_vs_physical",
     "obs_consequence")
-  definition <- c(
+  definitions <- c(
+    "Gender",
+    "Are you self-employed?",
+    "Do you have a family history of mental illness?",
+    "Have you sought treatment for a mental health condition?",
+    "How many employees does your company or organization have?",
+    "Do you work remotely (outside of an office) at least 50% of the time?",
+    "Is your employer primarily a tech company/organization?",
     "Does your employer provide mental health benefits?",
     "Do you know the options for mental health care your employer provides?",
     "Has your employer ever discussed mental health as part of an employee wellness program?",
@@ -31,5 +46,31 @@ getCovariateDefinitions <- function() {
     "Do you feel that your employer takes mental health as seriously as physical health?",
     "Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?"
   )
-  return(data.frame(covariates, definitions))
+  encodings <- c(
+    "nonbinary: 0, female: 1, male: 2",
+    "NA: 0, no: 0, yes: 1",
+    "yes: 1, no: 0",
+    "yes: 1, no: 0",
+    "1-5: 0, 6-25: 1, 26-100: 2, 100-500: 3, 500-1000: 4, more than 1000: 5",
+    "yes: 1, no: 0",
+    "yes: 1, no: 0",
+    "don't know: 0, no: 0, yes: 1",
+    "not sure: 0, yes: 1, no: 0",
+    "don't know: 0, no: 0, yes: 1",
+    "don't know: 0, no: 0, yes: 1",
+    "yes: 1, don't know: 2, no: 0",
+    "very difficult: 0, somewhat difficult: 1, don't know: 2, somewhat easy: 3, very easy: 4",
+    "yes: 1, maybe: 2, no: 0",
+    "yes: 1, maybe: 2, no: 0",
+    "yes: 1, some of them: 2, no: 0",
+    "yes: 1, some of them: 2, no: 0",
+    "yes: 1, maybe: 2, no: 0",
+    "yes: 1, maybe: 2, no: 0",
+    "yes: 1, don't know: 2, no: 0",
+    "yes: 1, no: 0"
+  )
+  return(data.frame(covariates, definitions, encodings))
 }
+
+getCovariateDefinitions()
+

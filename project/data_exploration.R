@@ -43,10 +43,10 @@ cleaning$Gender[(cleaning$Gender != 1) & (cleaning$Gender != 2)] <- 0
 cleaning$self_employed[is.na(cleaning$self_employed)] <- 'no'
 cleaning$self_employed <- yesno(cleaning$self_employed)
 
-#family history: yes = 1, no = 1
+#family history: yes = 1, no = 0
 cleaning$family_history <- yesno(cleaning$family_history)
 
-#sought treatment: yes = 1, no = 1
+#sought treatment: yes = 1, no = 0
 cleaning$treatment <- yesno(cleaning$treatment)
 
 #num employees: Range: 1-5: 0    6-25: 1    26-100: 2    100-500: 3   500-1000: 4    more than 1000: 5
