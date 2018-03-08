@@ -198,7 +198,15 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        opportunities to gain access to mental health care. On the other hand, if the subject works at a small company, they may be closer with the other 
                        employees and have a more diverse dialogue that includes the subject of mental health."),
                 tags$h3("The Model: Social Acceptance"),
-                tags$p("some more stuff"),
+                tags$p("For our last outcome of interest, we found that the three covariates that have the greatest effect were anonymity, leave and mental health consequence. 
+                       With a p value score nearly at 0, anonymity and leave both play a big role in helping us understand the factors to consider when looking at social acceptance. 
+                       Anonymity the more intuitive covariate asks whether or not your anonymity is protected if you choose to take advantage of a mental health resource. In today’s 
+                       world where mental illnesses is still quite taboo, anonymity plays a huge factor into social acceptance. Even though the ideal scenario is for all of us to be 
+                       able to accept mental illnesses, this covariate plays a strong role in providing incentives to those who are cautious of their so called “image” but still want 
+                       to reach out for resources. The other covariate leave suggests that the more people are comfortable to ask for leave the more socially acceptable mental health 
+                       issues are. And lastly mental health consequence with a p value close to 1, gives us a good ROC curve which suggests that people think that discussing a mental 
+                       health issues will have negative affects and therefore is a huge indicator of what needs to change to promote the awareness of mental health issues and making it 
+                       more socially acceptable at the workplace."),
                 tags$br(),
                 tags$br(),
                 tags$br(),
