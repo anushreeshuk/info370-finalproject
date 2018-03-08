@@ -78,4 +78,8 @@ shinyServer(function(input, output) {
     
   })
   
+  output$encodings <- renderDataTable(
+    iris
+  )
+  
 })

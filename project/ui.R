@@ -115,7 +115,9 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        that didn't make sense (extremely high numbers, negative values, and extremely small numbers)."),
                 tags$p("We then went about encoding all of the remaining responses into numeric values. We did this so we could easily
                        calculate our outcomes of interest and run regressions of the data. You can see our encoding scheme below."),
-                tags$p("ENCODING SCHEME HERE"),
+                
+                dataTableOutput("encodings"),
+                
                 tags$p("We also decided to coerce some responses. These desicions were context based, for example, there were NA responses to the 
                        'Are you self employed?' question. Because there were only about 10 non responses, we determined that these respondants were NOT self employed,
                        because they indicated working at large companies in the 'How many employees does your company have?' question. Some questions, for example,
