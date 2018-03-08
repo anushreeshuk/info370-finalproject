@@ -5,8 +5,8 @@ account: rosemerryberry
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 285081
-bundleId: 1230220
+bundleId: 1259905
 url: https://rosemerryberry.shinyapps.io/project/
-when: 1519060682.79877
+when: 1520538467.80285
 asMultiple: FALSE
 asStatic: FALSE

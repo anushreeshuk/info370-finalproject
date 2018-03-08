@@ -130,7 +130,42 @@ shinyUI(navbarPage("Mental Health in the Workplace",
                        You can see that if a response contained certain responses that it was categorized as having the outcome, and if it failed on any one of the responses we were looking at,
                        it was categorized as not having that outcome. This simple approach was taken in order to allow us to consider all three outcomes without using wildly different methods
                        of arriving at those outcomes, so we could compare our results of those models."),
-                tags$p("SCHEME HERE"),
+                tags$div(class="card text-white bg-secondary mb-3", style="max-width: 50rem; background-color:lavender; text-align:center",
+                    tags$div(class="card-body",
+                      tags$h4( class="card-title", "Ease of Access"),
+                      tags$p(class="card-text", "IF"),
+                      tags$p("supervisor > 1 &"),
+                      tags$p("(mental_health_interview = 1 OR phys_health_interview = 2) &"),
+                      tags$p("(mental_health_consequence = 1 OR cphys_health_consequence = 2)"),
+                      tags$p("THEN"),
+                      tags$p("ease of access is TRUE")
+                    )
+                ),
+                tags$div(class="card", style="max-width: 50rem; background-color:lavender; text-align:center",
+                    tags$div(class="card-body",
+                      tags$h4( class="card-title", "Ease of Communication"),
+                      tags$p(class="card-text", "IF"),
+                      tags$p(class="card-text", "benefits == 1 &"),
+                      tags$p("care_options == 1 &"),
+                      tags$p("wellness_program == 1 &"),
+                      tags$p("seek_help == 1"),
+                      tags$p("THEN"),
+                      tags$p("ease of communication is TRUE")
+                    )
+                ),
+                tags$div(class="card", style="max-width: 50rem; background-color:lavender; text-align:center",
+                   tags$div(class="card-body",
+                    tags$h4( class="card-title", "Social Acceptance"),
+                    tags$p(class="card-text", "IF"),
+                    tags$p(class="card-text", "anonymity == 1 & "),
+                    tags$p("(leave == 3 | leave == 4) &"),
+                    tags$p("mental_health_consequence == 0 &"),
+                    tags$p("supervisor == 1 &"),
+                    tags$p("obs_consequence == 0"),
+                    tags$p("THEN"),
+                    tags$p("social acceptance is TRUE")
+                  )
+                ),
                 tags$h2("The Model"),
                 tags$p("For this project we decided to do a log regression, which is a fairly standard way to model binary outcomes like our calculated outcomes of interest. For this analysis it was not 
                        critical for us to select a p value threshold because we were looking at the effects of both singular covariates as well as combinations. Our final model choices were based on a combination
