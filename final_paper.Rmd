@@ -11,20 +11,54 @@ library(plotly)
 ```
 
 ##Abstract
-This paper details the strategy our group took to solve the question of what factors most influence the social acceptance of mental health in the work place, and what can we do based on those findings. We developed three metrics to evaluate this question - social acceptance, each of communication and ease of access. We used logarithmic regression to evaluate the significance of different combinations of covariates for each outcome. To do this we built an interactive tool where you could build a model, see the p values of each covariate, and the goodness of fit of the model. Ultimately we can conclude that having open conversations about mental health in the abstract, allowing those who are suffering from it to remain anonymous if they choose, and allowing for leave to be taken to recover from mental illness are going to have the most impact in increasing the social acceptance of mental health.   
+This paper details the strategy our group took to solve the question of what factors most influence the social acceptance of mental health in the work place, and suggestions we can make based on those findings. We developed three metrics to evaluate this question - social acceptance, ease of communication, and ease of access. We used logarithmic regression to evaluate the significance of different combinations of covariates for each outcome. We build an interactive tool where you could build a model, see the p values of each covariate, and assess the of fit of the model. Ultimately we can conclude that having open conversations about mental health in the abstract, allowing those who are suffering from it to remain anonymous if they choose, and allowing for leave to be taken to recover from mental illness are going to have the most impact in increasing the social acceptance of mental health.
 
 ##Introduction
 
-The problem space we are exploring in this paper is the significance of the social acceptance of mental health, and how that interacts with measures like ease of communication about mental health and ease of access to resources about mental health. This is significant because in a given year, typically one in five people in the USA alone will suffer from mental illness (5). It is an extremely prevalent form of human suffering that carries a much higher stigma against it than physically apparent injuries and illnesses, such as broken bones or cancer. As such, society in the USA is much less inclined to give those suffering from mental illness the sort of leeway for recovery that they would for physical illnesses. This is apparent in insurance claims, company policies on leave, and even down to a low level employee's direct supervisor. So the purpose of this exploration is to use the data we have to identify signifcant factors of work life that impact the social acceptance, ease of access and ease of communication one experiences in the work place, and then take those factors and make concrete recommendations that employers can use to make their offices more accessible to those with mental illness. Our specific question of interest is   
+The problem space we are exploring in this paper is the significance of the social acceptance of mental health, and how that interacts with measures like ease of communication about mental health and ease of access to resources about mental health. This is significant because in a given year, typically one in five people in the USA alone will suffer from mental illness (1). It is an extremely prevalent form of human suffering that carries a much higher stigma than physically apparent injuries and illnesses, such as broken bones or cancer. As such, society in the USA is much less inclined to give those suffering from a mental illness the sort of leeway and understanding for recovery that they would for physical illnesses. This is apparent in insurance claims, company policies on leave, and even an employee's direct supervisor's policy. The purpose of this exploration is to use the data we found to identify signifcant factors of work life that impact the social acceptance, ease of access and ease of communication that one experiences in the work place, and then take those factors to make concrete recommendations that employers can use to make their offices more accessible to those with mental illness. This is the specific question of interest that we explored:  
 
 ####To what extent do different facets of interactions about mental health in the office contribute to the social acceptance of mental health?
 
 The data in this analysis comes from a survey conducted by Open Sourcing Mental Illness (OSMI) a non profit corporation dedicated to raising awareness, educating, and providing resources to support mental wellness in the tech and open source communities. They do a survey annually, and we are using the 2014 survey for this project. The survey contained demographic information about the participant, and the answers to their questions from the survey. 
 
 ##Related Work - A description of previous papers or projects related to your project.
-The study and impact of mental health awareness has been particularly prevalent in the last couple of years and many researchers have found it interesting to study the associations between common mental disorders and workplace productivity. “Mental health and the workplace: issues for developing countries”, a paper that highlights the necessity of providing mental health benefits and leniency towards those who need days off in developing countries. While developed countries like the US do a good job at addressing mental health concerns, its other places in the world that need to be taught how to motivate and encourage their employees to be comfortable enough to talk about anxiety, stress and other depressive conditions that are increasingly common in high-pressure environments. Supporting research in this paper suggest that “the odds of absenteeism due to health reasons [are] twice as high for employees with depressive symptoms.” Therefore it is important to highlight the direct correlation of employee well-being to overall productivity. Other papers, like “The Work of the Workplace Mental Health” have similarly studied and investigated the impacts of productivity in the workplace. This ethnographic study based in Ontario, looked at “(1) employees’ work of managing and negotiating episodes of depression, (2) managers’ administrative work of maintaining privacy and confidentiality, and (3) the administrative work of authorizing illness.” The lack of awareness and inadequate training to provide mental health support is one of the reasons why many workplaces fail to establish a socially acceptable 
 
-We discuss three institutionally organized processes that play a dominant role in coordinating the experiences of employees with self-reported depression: We shed light on how confidential medicalized disability management programs render managers ill prepared and inadequately trained to provide mental health support to their employees. Our findings inform advocacy efforts and facilitate both organizational and policy change to enhance services and supports for employees.
+
+
+
+
+[*****SOURCES NEEDED*****]
+
+
+
+
+
+
+The study and impact of mental health awareness has been particularly prevalent in recent years. Researchers have found it interesting to study the associations between common mental disorders and workplace productivity. “Mental health and the workplace: issues for developing countries” is a paper that highlights the necessity of providing mental health benefits and leniency of time off for those in developing countries with a mental health condition. While the USA and other developed countries have been working to better address mental health concerns, developing countries are still learning how to motivate and encourage their employees to be comfortable to talk about mental health conditions that are increasingly common in high-pressure environments.
+
+
+
+
+[do you mean the paper we are currently writing, or the paper that you referenced above? bolded here---> ]
+
+
+
+
+Supporting research in **this paper** suggests that “the odds of absenteeism due to health reasons [are] twice as high for employees with depressive symptoms.” Therefore, it is important to highlight the direct correlation of employees mental well-being to ability to work. Other papers, like “The Work of the Workplace Mental Health” have similarly studied and investigated the impact of mental health on productivity in the workplace. An ethnographic study based in Ontario, looked at “(1) employees’ work of managing and negotiating episodes of depression, (2) managers’ administrative work of maintaining privacy and confidentiality, and (3) the administrative work of authorizing illness.” 
+
+
+
+[what is the significance of it being an ethnographic study? ~~~~summarize the findings and insert sentence here~~~~]
+
+
+
+The lack of awareness and inadequate training to provide mental health support is one of the reasons why many workplaces fail to establish a socially acceptable 
+
+
+
+
+[unfinished sentence??]
+
 
 
 ##Methods - A detailed explanation of the techniques and algorithms you used to solve the problem.
