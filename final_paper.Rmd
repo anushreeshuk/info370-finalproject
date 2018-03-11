@@ -30,43 +30,11 @@ The data in this analysis comes from a survey conducted by Open Sourcing Mental 
 
 ##Related Work - A description of previous papers or projects related to your project.
 
+The study and impact of mental health awareness has been particularly prevalent in recent years. Researchers have found it interesting to study the associations between common mental disorders and workplace productivity. "Mental health and the workplace: issues for developing countries"(Chopra) is a paper that highlights the necessity of providing mental health benefits and leniency of time off/leave for those suffering from mental health illness in developing countries. While the USA and other developed countries have been working to better address mental health concerns, developing countries are still learning how to motivate and encourage their employees to be comfortable enough to talk about mental health conditions that are increasingly common in today's globalized and high-pressure environments. Further, supporting research highlighted in the paper (Chopra) suggests that "the odds of absenteeism due to health reasons [are] twice as high for employees with depressive symptoms." Therefore, it is important to highlight the direct and inverse correlation of employee well-being to the ability/productivity to work. 
 
+Other papers, like "The "Work" of the Workplace Mental Health" (Malachowski) have studied and investigated the impact of mental health on productivity in the workplace. An ethnographic study based in Ontario, looked at ???(1) employees??? work of managing and negotiating episodes of depression, (2) managers??? administrative work of maintaining privacy and confidentiality, and (3) the administrative work of authorizing illness.??? The lack of awareness and inadequate training provided to managers to support mental health is one of the reasons why many workplaces fail to establish a socially acceptable and open illness culture. Malachowski summarizes advocacy efforts to facilitate organization and policy changes to enhance services and support for employees in the workplace.
 
-
-
-[*****SOURCES NEEDED*****]
-
-
-
-
-
-
-The study and impact of mental health awareness has been particularly prevalent in recent years. Researchers have found it interesting to study the associations between common mental disorders and workplace productivity. “Mental health and the workplace: issues for developing countries” is a paper that highlights the necessity of providing mental health benefits and leniency of time off for those in developing countries with a mental health condition. While the USA and other developed countries have been working to better address mental health concerns, developing countries are still learning how to motivate and encourage their employees to be comfortable to talk about mental health conditions that are increasingly common in high-pressure environments.
-
-
-
-
-[do you mean the paper we are currently writing, or the paper that you referenced above? bolded here---> ]
-
-
-
-
-Supporting research in **this paper** suggests that “the odds of absenteeism due to health reasons [are] twice as high for employees with depressive symptoms.” Therefore, it is important to highlight the direct correlation of employees mental well-being to ability to work. Other papers, like “The Work of the Workplace Mental Health” have similarly studied and investigated the impact of mental health on productivity in the workplace. An ethnographic study based in Ontario, looked at “(1) employees’ work of managing and negotiating episodes of depression, (2) managers’ administrative work of maintaining privacy and confidentiality, and (3) the administrative work of authorizing illness.” 
-
-
-
-[what is the significance of it being an ethnographic study? ~~~~summarize the findings and insert sentence here~~~~]
-
-
-
-The lack of awareness and inadequate training to provide mental health support is one of the reasons why many workplaces fail to establish a socially acceptable 
-
-
-
-
-[unfinished sentence??]
-
-
+These works have helped us understand the direction that researchers are going for when they look at mental illness awarness in the workplace and the adverse affects it has in the absence of it. Our research also folllows a similarly trajectory where we explore the factors involved in creating environments that are not only socially acceptable of mental illness but also providing and supporting the open dialogue of mental illness and the resources necessary to cope appropriately.  
 
 ##Methods - A detailed explanation of the techniques and algorithms you used to solve the problem.
 
@@ -127,9 +95,12 @@ As a whole, we do believe our recommendations come from a data driven analysis a
 
 ##Works Cited
 
-“Mental Health By The Numbers.” NAMI: National Alliance on Mental Illness, National Alliance on Mental Illness, www.nami.org/learn-more/mental-health-by-the-numbers.   
+Chopra, Prem. ???Mental Health and the Workplace: Issues for Developing Countries.??? International Journal of Mental Health Systems 3 (2009): 4. PMC. Web. 11 Mar. 2018.
 
-[[[[MORE CITATIONA HERE]]]
+Malachowski, Cindy K., et al. ???The ???Work??? of Workplace Mental Health.??? Society and Mental Health, vol. 6, no. 3, 2016, pp. 207???222., doi:10.1177/2156869316642265.
+
+"Mental Health By The Numbers." NAMI: National Alliance on Mental Illness, National Alliance on Mental Illness, www.nami.org/learn-more/mental-health-by-the-numbers.   
+
 
 ##Appendix
 
