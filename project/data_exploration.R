@@ -6,7 +6,7 @@ library(dplyr)
 library(tidyr)
 
 #setwd("C:/Users/Rosemary/Documents/Info/370/info370-finalproject/project")
-setwd("/Users/calvinkorver/Documents/code/info370/info370-finalproject/project")
+#setwd("/Users/calvinkorver/Documents/code/info370/info370-finalproject/project")
 #setwd("~/Documents/Winter2018/INFO370/Assignments/info370-finalproject/project")
 
 raw.data <- read.csv("./data/raw_data.csv", stringsAsFactors = FALSE)
