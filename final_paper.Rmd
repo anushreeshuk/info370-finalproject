@@ -114,7 +114,11 @@ Finally, our last recommendation for improving workplace mental health is concer
 
 ##Future Work - A description of how your system could be extended.
 
-Our system
+Our system of exploratory analysis, using survey data and calculated outcomes, has implications for statisical analysis beyond it's application in this realm. The scaffolding we have developed can be added upon to include models beyond log regression, use data and covariates independent of mental health, to give people agency in quickly discovering statistically significant facets of their dataset. The more flexible the tool, the more possible uses, and given the chance to extend it, that is where we would go, and then take our tool and evalgelize it as a way for students and professionals to quickly and easily get a baseline understanding of what features of their dataset warrent further investigation.
+
+In the realm of mental health, our research would best be extended by reexamining workplaces that have taken the steps we recommended. Social engineering the acceptance of mental health is far more complicated and unpredictable that what we have touched on here, and as we have discussed requires context and careful considerating of the implications of your recommendations. So to extend what we have done here, we would have to iterate on our recommendations, based on if they worked or not, and see what interplay other facets of the workplace have on our intended outcomes.
+
+As a whole, we do believe our recommendations come from a data driven analysis and should most certainly be considered by institutions looking to increase the quality of work/life for their employees, regardless of if they are suffering from a mental illness at this current moment. In a world where invisible suffering can so easily be ignored, research like this plays an important role in making significant strides towards quantifying what was once considered delusions that could not be represented in the physical world. We hope our recommendations help in the goal of reducing human suffering and increase the access to care that everyone needs to stay healthy.
 
 ##Works Cited
 
